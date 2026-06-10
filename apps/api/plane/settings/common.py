@@ -506,6 +506,11 @@ if ENABLE_DRF_SPECTACULAR:
     INSTALLED_APPS.append("drf_spectacular")
     from .openapi import SPECTACULAR_SETTINGS  # noqa: F401
 
+USE_X_FORWARDED_HOST = int(os.environ.get("USE_X_FORWARDED_HOST", 0)) == 1
+USE_X_FORWARDED_PORT = int(os.environ.get("USE_X_FORWARDED_PORT", 0)) == 1
+if os.environ.get("SECURE_PROXY_SSL_HEADER", 0):
+    SECURE_PROXY_SSL_HEADER = (os.environ.get("SECURE_PROXY_SSL_HEADER", 0), "https")
+
 # MongoDB Settings
 MONGO_DB_URL = os.environ.get("MONGO_DB_URL", False)
 MONGO_DB_DATABASE = os.environ.get("MONGO_DB_DATABASE", False)
