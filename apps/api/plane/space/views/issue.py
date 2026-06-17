@@ -669,6 +669,7 @@ class IssueRetrievePublicEndpoint(BaseAPIView):
                                                 Value("/api/assets/v2/static/"),
                                                 F("votes__actor__avatar_asset"),
                                                 Value("/"),
+                                                output_field=CharField(),
                                             ),
                                         ),
                                         When(
@@ -715,6 +716,7 @@ class IssueRetrievePublicEndpoint(BaseAPIView):
                                                 Value("/api/assets/v2/static/"),
                                                 F("votes__actor__avatar_asset"),
                                                 Value("/"),
+                                                output_field=CharField(),
                                             ),
                                         ),
                                         When(
